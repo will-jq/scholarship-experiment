@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>高校助学金审核模拟系统</title>
+  <link rel="stylesheet" href="页面样式（外观）.css" />
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>高校助学金审核模拟系统</h1>
+      <div class="header-meta">
+        <span class="badge" id="progress-text">第 1 / 20 条</span>
+        <span id="group-type">实验条件：静态演示版</span>
+      </div>
+      <div class="header-meta">
+        <span id="timer">用时：0 秒</span>
+      </div>
+
+      <div class="progress-wrapper">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-bar"></div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="applicant-info">
+        <h2>申请者信息</h2>
+
+        <div class="card-group">
+          <article class="info-card">
+            <h3>基本信息</h3>
+            <div class="info-list">
+              <div class="info-item">
+                <span class="info-label">案例编号</span>
+                <span id="case-id">C01</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">性别</span>
+                <span id="gender">女</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">家庭人口</span>
+                <span id="family-size">5 人</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">父母学历</span>
+                <span id="parent-education">高中</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">地区经济水平</span>
+                <span id="region-level">较发达地区</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">到校距离</span>
+                <span id="distance-km">12.4 km</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="info-card">
+            <h3>家庭经济状况</h3>
+            <div class="info-list">
+              <div class="info-item">
+                <span class="info-label">家庭收入</span>
+                <span id="income">18,300 元 / 月</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">家庭资产</span>
+                <span id="assets">6,200 元</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">家庭负债</span>
+                <span id="debt">41,500 元</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">特殊支出</span>
+                <span id="special-expense">6,800 元 / 月</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="info-card">
+            <h3>学业与其他信息</h3>
+            <div class="info-list">
+              <div class="info-item">
+                <span class="info-label">GPA</span>
+                <span id="gpa">3.10</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">课外表现</span>
+                <span id="extracurricular">0.28</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">既往受助经历</span>
+                <span id="previous-aid">有</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">网络接入情况</span>
+                <span id="internet-access">有稳定网络</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="system-panel">
+        <h2>系统建议与解释</h2>
+
+        <div class="form-block" id="pre-judgment-block">
+          <h3>前置判断</h3>
+          <div class="pre-judgment-guide">
+            <p><strong>判断说明：</strong></p>
+              <p>“<strong>重点关注样本</strong>”指申请者信息中存在特殊困难、边界判断、信息矛盾或可能被算法误判的情形，需要审核人员在查看系统建议后保持审慎复核。如：</p>
+            <ul>
+              <li>家庭收入较低，但家庭负债、特殊支出明显偏高；</li>
+              <li>所在地区整体经济条件较好，但个体家庭仍呈现明显困难；</li>
+              <li>多个信息指标之间存在矛盾或边界情形，如家庭收入不低，但家庭负债和特殊支出压力较大；</li>
+              <li>既往受助经历、网络接入不足、到校距离等信息提示其可能存在持续性支持需求。</li>
+            </ul>
+            <p>若申请者情况较为明确、无明显边界性或复核必要，可判断为“常规样本”。</p>
+          </div>
+          <div class="options">
+            <h3>您认为该申请者是否属于需要重点关注的样本？</h3>
+            <label class="option-item">
+              <input type="radio" name="pre_judgment" value="normal" />
+              <span>是，该样本为重点关注样本</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="pre_judgment" value="focus" />
+              <span>否，该样本为常规样本</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="system-box" id="system-advice-block">
+          <h3>系统建议</h3>
+          <div class="advice-result" id="system-label">不建议资助</div>
+        </div>
+
+        <div class="system-box" id="confidence-block">
+          <h3>模型置信度</h3>
+          <div class="confidence-row">
+            <span>预测概率：<span id="probability">0.61</span></span>
+            <span class="confidence-tag">置信度：<span id="confidence-level">低</span></span>
+          </div>
+          <p class="hint-text">
+            说明：“预测概率（0～1）”表示系统基于当前申请者信息，判断其“应获得资助”的可能性。“置信度”表示系统对该判断的确定程度，分为高、中、低。
+          </p>
+          <p class="hint-text"><em>数值仅为参考，并不等同于最终审核结论。</em>
+          </p>
+            
+          
+        </div>
+
+        <div class="system-box" id="explanation-block">
+          <h3>关键依据</h3>
+          <ul class="factor-list" id="key-factors">
+            <li>家庭负债较高</li>
+            <li>特殊支出较高</li>
+            <li>地区经济水平较高</li>
+          </ul>
+        </div>
+
+        <div class="risk-box" id="risk-block">风险提示：<span id="risk-message">该样本预测置信度较低，建议重点复核。</span></div>
+      </section>
+
+      <section id="decision-panel">
+        <h2>审核操作</h2>
+
+        <div class="form-block" id="final-decision-block">
+          <h3>您认为该申请者是否应获得助学金？</h3>
+          <div class="options">
+            <label class="option-item">
+              <input type="radio" name="final_decision" value="1" />
+              <span>应当资助</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="final_decision" value="0" />
+              <span>不应当资助</span>
+            </label>
+          </div>
+        </div>
+        <div class="form-block" id="adopt-block">
+          <h3>您是否采纳系统建议？</h3>
+          <div class="options">
+            <label class="option-item">
+              <input type="radio" name="adopt_system" value="采纳" />
+              <span>是，采纳系统建议</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="adopt_system" value="修改" />
+              <span>否，并修改系统建议</span>
+            </label>
+          </div>
+        </div>
+        
+
+        <div class="form-block" id="reason-block">
+          <h3>若您选择“否，并修改系统建议”，请勾选您修改判断的主要依据，可多选。</h3>
+          <div class="options">
+            <label class="option-item">
+              <input type="checkbox" name="modify_reason" value="申请者家庭经济困难程度较高" />
+              <span>申请者家庭经济困难程度较高</span>
+            </label>
+            <label class="option-item">
+              <input type="checkbox" name="modify_reason" value="家庭负债或特殊支出压力较大" />
+              <span>家庭负债或特殊支出压力较大</span>
+            </label>
+            <label class="option-item">
+              <input type="checkbox" name="modify_reason" value="系统建议与申请者综合情况不一致" />
+              <span>系统建议与申请者综合情况不一致</span>
+            </label>
+            <label class="option-item">
+              <input type="checkbox" name="modify_reason" value="该样本属于重点关注或边界样本" />
+              <span>该样本属于重点关注或边界样本</span>
+            </label>
+            <label class="option-item">
+              <input type="checkbox" name="modify_reason" value="模型置信度较低或存在误判风险" />
+              <span>模型置信度较低或存在误判风险</span>
+            </label>
+            <label class="option-item">
+              <input type="checkbox" name="modify_reason" value="其他信息提示其存在持续性资助需求" />
+              <span>其他信息提示其存在持续性资助需求</span>
+            </label>
+            <label class="option-item">
+              <input type="checkbox" name="modify_reason" value="其他" id="modify-reason-other-checkbox" />
+              <span>其他（请填写）</span>
+            </label>
+            <textarea id="modify-reason-other-text" placeholder="请填写其他理由..." style="display:none;margin-top:8px;"></textarea>
+          </div>
+        </div>
+
+        <!-- 
+        <div class="form-block" id="audit-block">
+          <h3>审计提示</h3>
+          <div class="hint-text">本次审核记录将纳入后续抽检与审计。</div>
+        </div>
+        -->
+
+        <div class="form-block responsibility-box" id="responsibility-block">
+          <h3>责任确认</h3>
+           <h4>您的最终审核决定将被记录，并可能纳入后续抽检与责任审计。请确认您已独立审阅申请者信息、系统建议及相关解释，并愿意对本次审核决定承担相应审核责任。</h4>
+          <div class="options">
+            <label class="option-item">
+              <input type="checkbox" name="responsibility_confirm" value="1" />
+              <span>我已审阅申请者信息、系统建议及解释内容，并确认提交最终审核决定。
+              </span>
+            </label>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 责任归因弹窗 -->
+    <div id="responsibility-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4); z-index:999; align-items:center; justify-content:center;">
+      <div style="background:#fff; padding:24px; border-radius:12px; width:520px; max-width:90%; box-shadow:0 10px 30px rgba(0,0,0,0.2);">
+        <h3 style="margin-top:0;">责任归因判断</h3>
+        <p>如果该决策后续被发现存在不公平或误判，您认为主要责任应由谁承担？</p>
+
+        <div class="options" style="margin-top:16px;">
+          <label class="option-item">
+            <input type="radio" name="responsibility_attribution" value="1" />
+            <span>算法系统承担全部责任</span>
+          </label>
+          <label class="option-item">
+            <input type="radio" name="responsibility_attribution" value="2" />
+            <span>算法系统责任较大</span>
+          </label>
+          <label class="option-item">
+            <input type="radio" name="responsibility_attribution" value="3" />
+            <span>算法系统与人工审核者责任相当</span>
+          </label>
+          <label class="option-item">
+            <input type="radio" name="responsibility_attribution" value="4" />
+            <span>人工审核者责任较大</span>
+          </label>
+          <label class="option-item">
+            <input type="radio" name="responsibility_attribution" value="5" />
+            <span>人工审核者承担全部责任</span>
+          </label>
+        </div>
+
+        <div style="margin-top:20px; text-align:right;">
+          <button id="responsibility-modal-confirm" type="button">确认</button>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-actions">
+        <button id="prev-btn" type="button">上一条</button>
+        <button id="next-btn" type="button">提交并进入下一条</button>
+      </div>
+    </footer>
+  </div>
+
+  <script src="实验逻辑（行为）.js"></script>
+</body>
+</html>

@@ -1,0 +1,1003 @@
+[
+  {
+    "case_id": "C1",
+    "meta": {
+      "sample_id": "B35",
+      "group": "a组",
+      "bias_definition": "经济较发达地区中的困难家庭"
+    },
+    "applicant": {
+      "gender": "女",
+      "family_size": 4,
+      "parent_education": "本科",
+      "region_level": "较发达地区",
+      "distance_km": 12.02
+    },
+    "economic": {
+      "income": 41165.3,
+      "assets": 11961.03,
+      "debt": 15225.88,
+      "special_expense": 16520.88
+    },
+    "academic": {
+      "gpa": 2.7,
+      "extracurricular_score": "差"
+    },
+    "resource": {
+      "previous_aid": 1,
+      "internet_access": 1
+    },
+    "model": {
+      "prediction": 0,
+      "probability": 0.4994,
+      "difficulty_index": 0.6306,
+      "label_text": "不建议资助",
+      "confidence_level": "低",
+      "uncertainty_flag": 1
+    },
+    "explanation": {
+      "key_factors": [
+        "特殊支出较高",
+        "地区经济水平较高",
+        "既往受助经历显示其存在持续性资助需求"
+      ],
+      "risk_message": "该样本预测置信度较低，建议重点复核。"
+    },
+    "ground_truth": {
+      "true_label": 1,
+      "is_bias_object": 1,
+      "group_type": "偏见对象",
+      "is_difficult_family": 1
+    }
+  },
+  {
+    "case_id": "C2",
+    "meta": {
+      "sample_id": "B153",
+      "group": "a组",
+      "bias_definition": "经济较发达地区中的困难家庭"
+    },
+    "applicant": {
+      "gender": "男",
+      "family_size": 4,
+      "parent_education": "初/高中",
+      "region_level": "较发达地区",
+      "distance_km": 10.18
+    },
+    "economic": {
+      "income": 30973.07,
+      "assets": 8458.73,
+      "debt": 10167.91,
+      "special_expense": 4981.86
+    },
+    "academic": {
+      "gpa": 3.53,
+      "extracurricular_score": "良"
+    },
+    "resource": {
+      "previous_aid": 1,
+      "internet_access": 1
+    },
+    "model": {
+      "prediction": 1,
+      "probability": 0.5027,
+      "difficulty_index": 0.4341,
+      "label_text": "建议资助",
+      "confidence_level": "低",
+      "uncertainty_flag": 1
+    },
+    "explanation": {
+      "key_factors": [
+        "地区经济水平较高",
+        "既往受助经历显示其存在持续性资助需求",
+        "学生绩点较高"
+      ],
+      "risk_message": "该样本预测置信度较低，建议重点复核。"
+    },
+    "ground_truth": {
+      "true_label": 1,
+      "is_bias_object": 1,
+      "group_type": "偏见对象",
+      "is_difficult_family": 1
+    }
+  },
+  {
+    "case_id": "C3",
+    "meta": {
+      "sample_id": "B161",
+      "group": "a组",
+      "bias_definition": "经济较发达地区中的困难家庭"
+    },
+    "applicant": {
+      "gender": "女",
+      "family_size": 5,
+      "parent_education": "本科",
+      "region_level": "较发达地区",
+      "distance_km": 14.65
+    },
+    "economic": {
+      "income": 31534.78,
+      "assets": 10032.66,
+      "debt": 14635.06,
+      "special_expense": 13144.19
+    },
+    "academic": {
+      "gpa": 3.0,
+      "extracurricular_score": "差"
+    },
+    "resource": {
+      "previous_aid": 0,
+      "internet_access": 1
+    },
+    "model": {
+      "prediction": 0,
+      "probability": 0.4614,
+      "difficulty_index": 0.6313,
+      "label_text": "不建议资助",
+      "confidence_level": "低",
+      "uncertainty_flag": 1
+    },
+    "explanation": {
+      "key_factors": [
+        "特殊支出较高",
+        "地区经济水平较高"
+      ],
+      "risk_message": "该样本预测置信度较低，建议重点复核。"
+    },
+    "ground_truth": {
+      "true_label": 1,
+      "is_bias_object": 1,
+      "group_type": "偏见对象",
+      "is_difficult_family": 1
+    }
+  },
+  {
+    "case_id": "C4",
+    "meta": {
+      "sample_id": "B190",
+      "group": "a组",
+      "bias_definition": "经济较发达地区中的困难家庭"
+    },
+    "applicant": {
+      "gender": "男",
+      "family_size": 4,
+      "parent_education": "本科",
+      "region_level": "较发达地区",
+      "distance_km": 3.91
+    },
+    "economic": {
+      "income": 19858.23,
+      "assets": 12546.24,
+      "debt": 5961.02,
+      "special_expense": 9107.89
+    },
+    "academic": {
+      "gpa": 2.69,
+      "extracurricular_score": "优"
+    },
+    "resource": {
+      "previous_aid": 1,
+      "internet_access": 1
+    },
+    "model": {
+      "prediction": 0,
+      "probability": 0.4972,
+      "difficulty_index": 0.5754,
+      "label_text": "不建议资助",
+      "confidence_level": "低",
+      "uncertainty_flag": 1
+    },
+    "explanation": {
+      "key_factors": [
+        "家庭收入较低",
+        "特殊支出较高",
+        "地区经济水平较高"
+      ],
+      "risk_message": "该样本预测置信度较低，建议重点复核。"
+    },
+    "ground_truth": {
+      "true_label": 0,
+      "is_bias_object": 1,
+      "group_type": "偏见对象",
+      "is_difficult_family": 1
+    }
+  },
+  {
+    "case_id": "C5",
+    "meta": {
+      "sample_id": "B50",
+      "group": "b组",
+      "bias_definition": "经济较发达地区中的困难家庭"
+    },
+    "applicant": {
+      "gender": "男",
+      "family_size": 4,
+      "parent_education": "初/高中",
+      "region_level": "欠发达地区",
+      "distance_km": 11.24
+    },
+    "economic": {
+      "income": 11425.11,
+      "assets": 3202.21,
+      "debt": 4165.93,
+      "special_expense": 6034.32
+    },
+    "academic": {
+      "gpa": 2.8,
+      "extracurricular_score": "差"
+    },
+    "resource": {
+      "previous_aid": 0,
+      "internet_access": 1
+    },
+    "model": {
+      "prediction": 1,
+      "probability": 0.7074,
+      "difficulty_index": 0.7095,
+      "label_text": "建议资助",
+      "confidence_level": "中",
+      "uncertainty_flag": 0
+    },
+    "explanation": {
+      "key_factors": [
+        "家庭收入较低",
+        "特殊支出较高"
+      ],
+      "risk_message": ""
+    },
+    "ground_truth": {
+      "true_label": 0,
+      "is_bias_object": 0,
+      "group_type": "非偏见对象",
+      "is_difficult_family": 1
+    }
+  },
+  {
+    "case_id": "C6",
+    "meta": {
+      "sample_id": "B91",
+      "group": "b组",
+      "bias_definition": "经济较发达地区中的困难家庭"
+    },
+    "applicant": {
+      "gender": "男",
+      "family_size": 6,
+      "parent_education": "初/高中",
+      "region_level": "欠发达地区",
+      "distance_km": 15.99
+    },
+    "economic": {
+      "income": 14838.29,
+      "assets": 3089.53,
+      "debt": 10316.52,
+      "special_expense": 2947.93
+    },
+    "academic": {
+      "gpa": 2.94,
+      "extracurricular_score": "良"
+    },
+    "resource": {
+      "previous_aid": 0,
+      "internet_access": 1
+    },
+    "model": {
+      "prediction": 1,
+      "probability": 0.6189,
+      "difficulty_index": 0.9236,
+      "label_text": "建议资助",
+      "confidence_level": "中",
+      "uncertainty_flag": 1
+    },
+    "explanation": {
+      "key_factors": [
+        "家庭收入较低"
+      ],
+      "risk_message": "该样本预测置信度较低，建议重点复核。"
+    },
+    "ground_truth": {
+      "true_label": 1,
+      "is_bias_object": 0,
+      "group_type": "非偏见对象",
+      "is_difficult_family": 1
+    }
+  },
+  {
+    "case_id": "C7",
+    "meta": {
+      "sample_id": "B33",
+      "group": "c组",
+      "bias_definition": "经济较发达地区中的困难家庭"
+    },
+    "applicant": {
+      "gender": "女",
+      "family_size": 3,
+      "parent_education": "初/高中",
+      "region_level": "较发达地区",
+      "distance_km": 6.15
+    },
+    "economic": {
+      "income": 19283.19,
+      "assets": 4647.76,
+      "debt": 2970.19,
+      "special_expense": 6883.41
+    },
+    "academic": {
+      "gpa": 3.15,
+      "extracurricular_score": "良"
+    },
+    "resource": {
+      "previous_aid": 0,
+      "internet_access": 0
+    },
+    "model": {
+      "prediction": 0,
+      "probability": 0.4396,
+      "difficulty_index": 0.115,
+      "label_text": "不建议资助",
+      "confidence_level": "低",
+      "uncertainty_flag": 1
+    },
+    "explanation": {
+      "key_factors": [
+        "家庭收入较低",
+        "特殊支出较高",
+        "地区经济水平较高"
+      ],
+      "risk_message": "该样本预测置信度较低，建议重点复核。"
+    },
+    "ground_truth": {
+      "true_label": 1,
+      "is_bias_object": 1,
+      "group_type": "偏见对象",
+      "is_difficult_family": 1
+    }
+  },
+  {
+    "case_id": "C8",
+    "meta": {
+      "sample_id": "B47",
+      "group": "c组",
+      "bias_definition": "经济较发达地区中的困难家庭"
+    },
+    "applicant": {
+      "gender": "女",
+      "family_size": 6,
+      "parent_education": "初/高中",
+      "region_level": "较发达地区",
+      "distance_km": 7.42
+    },
+    "economic": {
+      "income": 31568.17,
+      "assets": 9032.16,
+      "debt": 2567.8,
+      "special_expense": 5651.27
+    },
+    "academic": {
+      "gpa": 3.62,
+      "extracurricular_score": "优"
+    },
+    "resource": {
+      "previous_aid": 0,
+      "internet_access": 1
+    },
+    "model": {
+      "prediction": 0,
+      "probability": 0.4586,
+      "difficulty_index": 0.1291,
+      "label_text": "不建议资助",
+      "confidence_level": "低",
+      "uncertainty_flag": 1
+    },
+    "explanation": {
+      "key_factors": [
+        "特殊支出较高",
+        "地区经济水平较高",
+        "学生绩点较高"
+      ],
+      "risk_message": "该样本预测置信度较低，建议重点复核。"
+    },
+    "ground_truth": {
+      "true_label": 1,
+      "is_bias_object": 1,
+      "group_type": "偏见对象",
+      "is_difficult_family": 1
+    }
+  },
+  {
+    "case_id": "C9",
+    "meta": {
+      "sample_id": "B56",
+      "group": "c组",
+      "bias_definition": "经济较发达地区中的困难家庭"
+    },
+    "applicant": {
+      "gender": "男",
+      "family_size": 4,
+      "parent_education": "初/高中",
+      "region_level": "较发达地区",
+      "distance_km": 11.5
+    },
+    "economic": {
+      "income": 22783.81,
+      "assets": 17715.41,
+      "debt": 13647.24,
+      "special_expense": 9521.36
+    },
+    "academic": {
+      "gpa": 2.86,
+      "extracurricular_score": "良"
+    },
+    "resource": {
+      "previous_aid": 0,
+      "internet_access": 1
+    },
+    "model": {
+      "prediction": 1,
+      "probability": 0.5085,
+      "difficulty_index": 0.3885,
+      "label_text": "建议资助",
+      "confidence_level": "低",
+      "uncertainty_flag": 1
+    },
+    "explanation": {
+      "key_factors": [
+        "特殊支出较高",
+        "地区经济水平较高"
+      ],
+      "risk_message": "该样本预测置信度较低，建议重点复核。"
+    },
+    "ground_truth": {
+      "true_label": 1,
+      "is_bias_object": 1,
+      "group_type": "偏见对象",
+      "is_difficult_family": 1
+    }
+  },
+  {
+    "case_id": "C10",
+    "meta": {
+      "sample_id": "B73",
+      "group": "c组",
+      "bias_definition": "经济较发达地区中的困难家庭"
+    },
+    "applicant": {
+      "gender": "男",
+      "family_size": 5,
+      "parent_education": "初/高中",
+      "region_level": "较发达地区",
+      "distance_km": 8.24
+    },
+    "economic": {
+      "income": 54852.11,
+      "assets": 12676.34,
+      "debt": 13066.57,
+      "special_expense": 11947.4
+    },
+    "academic": {
+      "gpa": 3.06,
+      "extracurricular_score": "差"
+    },
+    "resource": {
+      "previous_aid": 0,
+      "internet_access": 1
+    },
+    "model": {
+      "prediction": 0,
+      "probability": 0.4739,
+      "difficulty_index": 0.2583,
+      "label_text": "不建议资助",
+      "confidence_level": "低",
+      "uncertainty_flag": 1
+    },
+    "explanation": {
+      "key_factors": [
+        "特殊支出较高",
+        "地区经济水平较高"
+      ],
+      "risk_message": "该样本预测置信度较低，建议重点复核。"
+    },
+    "ground_truth": {
+      "true_label": 1,
+      "is_bias_object": 1,
+      "group_type": "偏见对象",
+      "is_difficult_family": 1
+    }
+  },
+  {
+    "case_id": "C11",
+    "meta": {
+      "sample_id": "B81",
+      "group": "c组",
+      "bias_definition": "经济较发达地区中的困难家庭"
+    },
+    "applicant": {
+      "gender": "女",
+      "family_size": 5,
+      "parent_education": "小学及以下",
+      "region_level": "较发达地区",
+      "distance_km": 3.85
+    },
+    "economic": {
+      "income": 35871.11,
+      "assets": 18104.4,
+      "debt": 17895.57,
+      "special_expense": 4761.65
+    },
+    "academic": {
+      "gpa": 3.82,
+      "extracurricular_score": "差"
+    },
+    "resource": {
+      "previous_aid": 0,
+      "internet_access": 1
+    },
+    "model": {
+      "prediction": 0,
+      "probability": 0.4737,
+      "difficulty_index": 0.2136,
+      "label_text": "不建议资助",
+      "confidence_level": "低",
+      "uncertainty_flag": 1
+    },
+    "explanation": {
+      "key_factors": [
+        "地区经济水平较高",
+        "学生绩点较高"
+      ],
+      "risk_message": "该样本预测置信度较低，建议重点复核。"
+    },
+    "ground_truth": {
+      "true_label": 1,
+      "is_bias_object": 1,
+      "group_type": "偏见对象",
+      "is_difficult_family": 1
+    }
+  },
+  {
+    "case_id": "C12",
+    "meta": {
+      "sample_id": "B129",
+      "group": "c组",
+      "bias_definition": "经济较发达地区中的困难家庭"
+    },
+    "applicant": {
+      "gender": "女",
+      "family_size": 4,
+      "parent_education": "本科",
+      "region_level": "较发达地区",
+      "distance_km": 7.53
+    },
+    "economic": {
+      "income": 26954.33,
+      "assets": 9186.56,
+      "debt": 12170.95,
+      "special_expense": 6750.68
+    },
+    "academic": {
+      "gpa": 3.26,
+      "extracurricular_score": "优"
+    },
+    "resource": {
+      "previous_aid": 0,
+      "internet_access": 1
+    },
+    "model": {
+      "prediction": 0,
+      "probability": 0.3884,
+      "difficulty_index": 0.3469,
+      "label_text": "不建议资助",
+      "confidence_level": "低",
+      "uncertainty_flag": 1
+    },
+    "explanation": {
+      "key_factors": [
+        "特殊支出较高",
+        "地区经济水平较高"
+      ],
+      "risk_message": "该样本预测置信度较低，建议重点复核。"
+    },
+    "ground_truth": {
+      "true_label": 0,
+      "is_bias_object": 1,
+      "group_type": "偏见对象",
+      "is_difficult_family": 1
+    }
+  },
+  {
+    "case_id": "C13",
+    "meta": {
+      "sample_id": "B63",
+      "group": "d组",
+      "bias_definition": "经济较发达地区中的困难家庭"
+    },
+    "applicant": {
+      "gender": "女",
+      "family_size": 5,
+      "parent_education": "本科",
+      "region_level": "欠发达地区",
+      "distance_km": 15.48
+    },
+    "economic": {
+      "income": 25871.66,
+      "assets": 11786.95,
+      "debt": 8171.97,
+      "special_expense": 2917.7
+    },
+    "academic": {
+      "gpa": 2.52,
+      "extracurricular_score": "差"
+    },
+    "resource": {
+      "previous_aid": 0,
+      "internet_access": 1
+    },
+    "model": {
+      "prediction": 0,
+      "probability": 0.4561,
+      "difficulty_index": 0.1472,
+      "label_text": "不建议资助",
+      "confidence_level": "低",
+      "uncertainty_flag": 1
+    },
+    "explanation": {
+      "key_factors": [
+        "学生绩点偏低"
+      ],
+      "risk_message": "该样本预测置信度较低，建议重点复核。"
+    },
+    "ground_truth": {
+      "true_label": 1,
+      "is_bias_object": 0,
+      "group_type": "非偏见对象",
+      "is_difficult_family": 1
+    }
+  },
+  {
+    "case_id": "C14",
+    "meta": {
+      "sample_id": "B75",
+      "group": "d组",
+      "bias_definition": "经济较发达地区中的困难家庭"
+    },
+    "applicant": {
+      "gender": "男",
+      "family_size": 5,
+      "parent_education": "本科",
+      "region_level": "欠发达地区",
+      "distance_km": 12.65
+    },
+    "economic": {
+      "income": 17051.34,
+      "assets": 7390.24,
+      "debt": 3715.62,
+      "special_expense": 1606.12
+    },
+    "academic": {
+      "gpa": 2.94,
+      "extracurricular_score": "良"
+    },
+    "resource": {
+      "previous_aid": 1,
+      "internet_access": 1
+    },
+    "model": {
+      "prediction": 1,
+      "probability": 0.5888,
+      "difficulty_index": 0.3619,
+      "label_text": "建议资助",
+      "confidence_level": "低",
+      "uncertainty_flag": 1
+    },
+    "explanation": {
+      "key_factors": [
+        "家庭收入较低",
+        "既往受助经历显示其存在持续性资助需求"
+      ],
+      "risk_message": "该样本预测置信度较低，建议重点复核。"
+    },
+    "ground_truth": {
+      "true_label": 0,
+      "is_bias_object": 0,
+      "group_type": "非偏见对象",
+      "is_difficult_family": 1
+    }
+  },
+  {
+    "case_id": "C15",
+    "meta": {
+      "sample_id": "B88",
+      "group": "e组",
+      "bias_definition": "经济较发达地区中的困难家庭"
+    },
+    "applicant": {
+      "gender": "女",
+      "family_size": 5,
+      "parent_education": "初/高中",
+      "region_level": "较发达地区",
+      "distance_km": 5.55
+    },
+    "economic": {
+      "income": 79568.21,
+      "assets": 109377.74,
+      "debt": 73302.86,
+      "special_expense": 6579.11
+    },
+    "academic": {
+      "gpa": 3.13,
+      "extracurricular_score": "差"
+    },
+    "resource": {
+      "previous_aid": 0,
+      "internet_access": 1
+    },
+    "model": {
+      "prediction": 0,
+      "probability": 0.4876,
+      "difficulty_index": -0.1581,
+      "label_text": "不建议资助",
+      "confidence_level": "低",
+      "uncertainty_flag": 1
+    },
+    "explanation": {
+      "key_factors": [
+        "家庭负债较高",
+        "特殊支出较高",
+        "地区经济水平较高"
+      ],
+      "risk_message": "该样本预测置信度较低，建议重点复核。"
+    },
+    "ground_truth": {
+      "true_label": 1,
+      "is_bias_object": 0,
+      "group_type": "非偏见对象",
+      "is_difficult_family": 0
+    }
+  },
+  {
+    "case_id": "C16",
+    "meta": {
+      "sample_id": "B105",
+      "group": "e组",
+      "bias_definition": "经济较发达地区中的困难家庭"
+    },
+    "applicant": {
+      "gender": "男",
+      "family_size": 4,
+      "parent_education": "初/高中",
+      "region_level": "较发达地区",
+      "distance_km": 5.95
+    },
+    "economic": {
+      "income": 26178.45,
+      "assets": 15603.59,
+      "debt": 3982.09,
+      "special_expense": 4905.44
+    },
+    "academic": {
+      "gpa": 3.48,
+      "extracurricular_score": "差"
+    },
+    "resource": {
+      "previous_aid": 0,
+      "internet_access": 1
+    },
+    "model": {
+      "prediction": 0,
+      "probability": 0.4886,
+      "difficulty_index": -0.1296,
+      "label_text": "不建议资助",
+      "confidence_level": "低",
+      "uncertainty_flag": 1
+    },
+    "explanation": {
+      "key_factors": [
+        "地区经济水平较高"
+      ],
+      "risk_message": "该样本预测置信度较低，建议重点复核。"
+    },
+    "ground_truth": {
+      "true_label": 1,
+      "is_bias_object": 0,
+      "group_type": "非偏见对象",
+      "is_difficult_family": 0
+    }
+  },
+  {
+    "case_id": "C17",
+    "meta": {
+      "sample_id": "B156",
+      "group": "e组",
+      "bias_definition": "经济较发达地区中的困难家庭"
+    },
+    "applicant": {
+      "gender": "男",
+      "family_size": 3,
+      "parent_education": "初/高中",
+      "region_level": "较发达地区",
+      "distance_km": 14.71
+    },
+    "economic": {
+      "income": 51171.78,
+      "assets": 10616.86,
+      "debt": 5671.35,
+      "special_expense": 7306.88
+    },
+    "academic": {
+      "gpa": 3.11,
+      "extracurricular_score": "良"
+    },
+    "resource": {
+      "previous_aid": 0,
+      "internet_access": 1
+    },
+    "model": {
+      "prediction": 0,
+      "probability": 0.4998,
+      "difficulty_index": -0.3697,
+      "label_text": "不建议资助",
+      "confidence_level": "低",
+      "uncertainty_flag": 1
+    },
+    "explanation": {
+      "key_factors": [
+        "特殊支出较高",
+        "地区经济水平较高"
+      ],
+      "risk_message": "该样本预测置信度较低，建议重点复核。"
+    },
+    "ground_truth": {
+      "true_label": 0,
+      "is_bias_object": 0,
+      "group_type": "非偏见对象",
+      "is_difficult_family": 0
+    }
+  },
+  {
+    "case_id": "C18",
+    "meta": {
+      "sample_id": "B163",
+      "group": "e组",
+      "bias_definition": "经济较发达地区中的困难家庭"
+    },
+    "applicant": {
+      "gender": "男",
+      "family_size": 4,
+      "parent_education": "小学及以下",
+      "region_level": "较发达地区",
+      "distance_km": 11.35
+    },
+    "economic": {
+      "income": 119072.86,
+      "assets": 59407.43,
+      "debt": 15402.09,
+      "special_expense": 7357.46
+    },
+    "academic": {
+      "gpa": 3.26,
+      "extracurricular_score": "良"
+    },
+    "resource": {
+      "previous_aid": 0,
+      "internet_access": 1
+    },
+    "model": {
+      "prediction": 1,
+      "probability": 0.5061,
+      "difficulty_index": -0.7258,
+      "label_text": "建议资助",
+      "confidence_level": "低",
+      "uncertainty_flag": 1
+    },
+    "explanation": {
+      "key_factors": [
+        "特殊支出较高",
+        "地区经济水平较高"
+      ],
+      "risk_message": "该样本预测置信度较低，建议重点复核。"
+    },
+    "ground_truth": {
+      "true_label": 0,
+      "is_bias_object": 0,
+      "group_type": "非偏见对象",
+      "is_difficult_family": 0
+    }
+  },
+  {
+    "case_id": "C19",
+    "meta": {
+      "sample_id": "B120",
+      "group": "f组",
+      "bias_definition": "经济较发达地区中的困难家庭"
+    },
+    "applicant": {
+      "gender": "男",
+      "family_size": 2,
+      "parent_education": "初/高中",
+      "region_level": "欠发达地区",
+      "distance_km": 12.32
+    },
+    "economic": {
+      "income": 24022.33,
+      "assets": 35214.52,
+      "debt": 2478.44,
+      "special_expense": 1099.29
+    },
+    "academic": {
+      "gpa": 2.81,
+      "extracurricular_score": "良"
+    },
+    "resource": {
+      "previous_aid": 0,
+      "internet_access": 1
+    },
+    "model": {
+      "prediction": 1,
+      "probability": 0.514,
+      "difficulty_index": -1.2894,
+      "label_text": "建议资助",
+      "confidence_level": "低",
+      "uncertainty_flag": 1
+    },
+    "explanation": {
+      "key_factors": [
+        "综合指标表现中等"
+      ],
+      "risk_message": "该样本预测置信度较低，建议重点复核。"
+    },
+    "ground_truth": {
+      "true_label": 0,
+      "is_bias_object": 0,
+      "group_type": "非偏见对象",
+      "is_difficult_family": 0
+    }
+  },
+  {
+    "case_id": "C20",
+    "meta": {
+      "sample_id": "B177",
+      "group": "f组",
+      "bias_definition": "经济较发达地区中的困难家庭"
+    },
+    "applicant": {
+      "gender": "女",
+      "family_size": 4,
+      "parent_education": "小学及以下",
+      "region_level": "欠发达地区",
+      "distance_km": 14.8
+    },
+    "economic": {
+      "income": 23357.88,
+      "assets": 28325.52,
+      "debt": 10436.42,
+      "special_expense": 1681.72
+    },
+    "academic": {
+      "gpa": 3.0,
+      "extracurricular_score": "差"
+    },
+    "resource": {
+      "previous_aid": 0,
+      "internet_access": 1
+    },
+    "model": {
+      "prediction": 1,
+      "probability": 0.5175,
+      "difficulty_index": -0.2563,
+      "label_text": "建议资助",
+      "confidence_level": "低",
+      "uncertainty_flag": 1
+    },
+    "explanation": {
+      "key_factors": [
+        "综合指标表现中等"
+      ],
+      "risk_message": "该样本预测置信度较低，建议重点复核。"
+    },
+    "ground_truth": {
+      "true_label": 1,
+      "is_bias_object": 0,
+      "group_type": "非偏见对象",
+      "is_difficult_family": 0
+    }
+  }
+]

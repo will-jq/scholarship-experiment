@@ -1,0 +1,274 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>高校助学金审核模拟实验说明</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --line: #d9e0ea;
+      --text: #1f2937;
+      --subtext: #6b7280;
+      --primary: #2563eb;
+      --primary-light: #e8f0ff;
+      --warning: #b45309;
+      --warning-light: #fff7ed;
+      --shadow: 0 10px 32px rgba(15, 23, 42, 0.08);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: radial-gradient(circle at top left, #e8f0ff 0, #f5f7fb 34%, #f5f7fb 100%);
+      color: var(--text);
+    }
+
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 56px 24px;
+    }
+
+    .hero {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 36px 42px;
+      margin-bottom: 22px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--primary-light);
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: 32px;
+      line-height: 1.25;
+      letter-spacing: 0.02em;
+    }
+
+    .lead {
+      margin: 0;
+      color: var(--subtext);
+      font-size: 17px;
+      line-height: 1.9;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin-bottom: 22px;
+    }
+
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px 26px;
+    }
+
+    .panel.full {
+      grid-column: 1 / -1;
+    }
+
+    .panel h2 {
+      margin: 0 0 14px;
+      font-size: 20px;
+      line-height: 1.4;
+    }
+
+    .panel p {
+      margin: 0;
+      color: var(--subtext);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .steps,
+    .notes {
+      margin: 0;
+      padding-left: 22px;
+      color: var(--subtext);
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    .steps li,
+    .notes li {
+      margin-bottom: 6px;
+    }
+
+    .notice {
+      background: var(--warning-light);
+      border: 1px solid #fed7aa;
+      color: var(--warning);
+      border-radius: 14px;
+      padding: 16px 18px;
+      font-size: 14px;
+      line-height: 1.8;
+      margin-top: 16px;
+    }
+
+    .start-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .start-card p {
+      margin: 0;
+      color: var(--subtext);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .start-button {
+      flex-shrink: 0;
+      border: none;
+      border-radius: 12px;
+      padding: 14px 24px;
+      background: var(--primary);
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(37, 99, 235, 0.22);
+    }
+
+    .start-button:hover {
+      filter: brightness(0.96);
+    }
+
+    .start-button:active {
+      transform: translateY(1px);
+    }
+
+    @media (max-width: 820px) {
+      .page {
+        padding: 32px 16px;
+      }
+
+      .hero {
+        padding: 28px 24px;
+      }
+
+      h1 {
+        font-size: 26px;
+      }
+
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .start-card {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .start-button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div style="background:#fff7ed;color:#9a3412;border-bottom:1px solid #fdba74;padding:12px 16px;font-size:14px;font-weight:700;">
+    GitHub Pages 调试提示：如果你能看到这行文字，说明 index.html 已经成功加载。若线上仍然空白，请确认已将本地修改 commit 并 push 到 GitHub。
+  </div>
+  <main class="page">
+    <section class="hero">
+      <div class="tag">实验说明</div>
+      <h1>高校助学金审核模拟实验</h1>
+      <p class="lead">
+        您好！本实验旨在模拟高校助学金审核过程，了解不同信息支持方式下审核人员的决策表现。本实验采用匿名方式，所有答题记录仅作为学术研究用途，不会透露您的任何答题信息。所有题目选项无对错之分，请您根据您的经验与思考作答即可。本实验预计12-18分钟，感谢您宝贵的时间。
+      </p>
+    </section>
+
+    <div class="content-grid">
+      <section class="panel">
+        <h2>一、您的任务</h2>
+        <p>
+          您将扮演某高校助学金审核辅助人员，根据申请者所提供的信息卡片，对其助学金申请作出审核判断。在不同实验条件下，系统可能提供不同的审核建议、解释说明或责任提示。请您依据页面所提供的信息，尽可能作出真实审慎的判断。
+        </p>
+      </section>
+
+      <section class="panel">
+        <h2>二、实验流程</h2>
+        <ol class="steps">
+          <li>阅读申请者信息。</li>
+          <li>根据页面提示查看系统辅助信息。</li>
+          <li>作出最终审核决定。</li>
+          <li>提交后进入下一条案例。</li>
+        </ol>
+      </section>
+
+      <section class="panel">
+        <h2>三、案例数量</h2>
+        <p>
+          本实验共包含 20 条申请者案例。每条案例均需独立判断，请尽量按照真实审核情境进行作答。
+        </p>
+      </section>
+
+      <section class="panel">
+        <h2>四、作答要求</h2>
+        <ul class="notes">
+          <li>请在安静环境中独立完成实验。</li>
+          <li>请勿与他人讨论案例内容或作答选择。</li>
+          <li>实验过程中请尽量不要刷新页面或中途退出。</li>
+          <li>请根据材料和个人判断作答，不必追求某种固定答案。</li>
+        </ul>
+      </section>
+
+      <section class="panel full">
+        <h2>五、重要说明</h2>
+        <p>
+          在部分案例中，系统可能会提供辅助判断信息。该信息仅作为审核参考，最终决定仍需由您根据申请者材料独立作出。
+        </p>
+        <div class="notice">
+          点击下方按钮后，系统将进入正式实验页面，并开始记录您的案例判断结果与作答用时。请确认已经理解上述说明后再开始。
+        </div>
+      </section>
+    </div>
+
+    <section class="start-card">
+      <p>
+        准备好后，请点击右侧按钮进入正式实验。进入后请按照页面提示依次完成 20 条案例审核。
+      </p>
+      <button id="start-experiment-btn" class="start-button" type="button">我已理解说明，开始实验</button>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("start-experiment-btn").addEventListener("click", () => {
+      window.location.href = "./页面骨架（结构）.html";
+    });
+  </script>
+</body>
+</html>

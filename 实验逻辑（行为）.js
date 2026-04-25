@@ -1,8 +1,24 @@
+const SUPABASE_URL = "https://jndphorzinmmelvftpin.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_TaNhFYnBMtfqTnP_AaLYTA_N1YpGONO";
+
+let supabaseDb = null;
+function getSupabaseClient() {
+  if (supabaseDb) return supabaseDb;
+  if (!window.supabase || typeof window.supabase.createClient !== "function") {
+    console.error("Supabase SDK 尚未加载，请检查页面骨架.html 中 script 标签顺序。");
+    return null;
+  }
+  supabaseDb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  return supabaseDb;
+}
+
 let cases = [];
 let currentCaseIndex = 0;
 let participantId = "";
 let groupType = "静态演示版";
 let startTime = null;
+let experimentStartedAt = null;
+let hasSubmittedToDatabase = false;
 let results = [];
 let timerInterval = null;
 let elapsedSeconds = 0;
@@ -316,8 +332,18 @@ function buildKeyFactorList(keyFactors = []) {
   return keyFactors.map(item => `<li>${item}</li>`).join("");
 }
 
+function scrollToCaseTop() {
+  const appEl = document.getElementById("app");
+  const targetTop = appEl ? appEl.offsetTop : 0;
+  window.scrollTo({
+    top: targetTop,
+    behavior: "smooth"
+  });
+}
+
 async function initExperiment() {
   participantId = generateParticipantId();
+  experimentStartedAt = new Date().toISOString();
   groupType = assignGroup();
 
   const groupEl = document.getElementById("group-type");
@@ -394,7 +420,7 @@ function chooseBalancedRandomGroup(counts) {
 }
 
 function assignGroup() {
-  return "前置组";
+  return "全自动组";
   /*注释符号
   const counts = getStoredGroupCounts();
   const selectedGroup = chooseBalancedRandomGroup(counts);
@@ -580,7 +606,7 @@ function validateCurrentCaseResponse() {
   return true;
 }
 
-function goToNextCase() {
+async function goToNextCase() {
   if (!validateCurrentCaseResponse()) {
     alert("请您完成当前案例判断后进入下一条！");
     return;
@@ -596,12 +622,63 @@ function goToNextCase() {
     currentCaseIndex += 1;
     renderCase();
     updateProgress();
+    scrollToCaseTop();
     return;
   }
 
   clearInterval(timerInterval);
-  alert("20条典型案例已预览完成。下一步可接入正式实验记录与导出逻辑。");
-  exportResults();
+  await saveResultsToSupabase();
+}
+
+async function saveResultsToSupabase() {
+  if (hasSubmittedToDatabase) {
+    alert("本次实验数据已提交，请勿重复提交。");
+    return true;
+  }
+
+  if (!Array.isArray(results) || results.length === 0) {
+    alert("当前没有可提交的实验数据。");
+    return false;
+  }
+
+  try {
+    const payload = {
+      participant_id: participantId,
+      group_type: groupType,
+      started_at: experimentStartedAt,
+      submitted_at: new Date().toISOString(),
+      responses_json: results,
+      user_agent: navigator.userAgent
+    };
+
+    const supabaseClient = getSupabaseClient();
+    if (!supabaseClient) {
+    alert("数据库连接组件尚未加载，当前数据将自动下载为本地备份。");
+    exportResults();
+    return false;
+    }
+
+    const { error } = await supabaseClient
+      .from("experiment_responses")
+      .insert([payload]);
+
+    if (error) {
+      console.error("Supabase 写入失败：", error);
+      alert("数据上传失败，请截图联系研究人员。当前数据将自动下载为本地备份。");
+      exportResults();
+      return false;
+    }
+
+    hasSubmittedToDatabase = true;
+    console.log("数据已成功写入 Supabase。", payload);
+    alert("实验数据已成功提交，感谢您的参与！");
+    return true;
+  } catch (error) {
+    console.error("提交数据库时发生异常：", error);
+    alert("数据提交异常，请截图联系研究人员。当前数据将自动下载为本地备份。");
+    exportResults();
+    return false;
+  }
 }
 
 function exportResults() {
@@ -659,6 +736,7 @@ window.addEventListener("DOMContentLoaded", () => {
       currentCaseIndex -= 1;
       renderCase();
       updateProgress();
+      scrollToCaseTop();
     });
   }
 

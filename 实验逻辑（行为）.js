@@ -24,6 +24,7 @@ const GROUP_DISPLAY_RULES = {
     showExplanation: false,
     showRisk: false,
     showAdoptChoice: false,
+    showReferenceScale: true,
     showReason: false,
     showResponsibility: false,
     showAudit: false
@@ -34,6 +35,7 @@ const GROUP_DISPLAY_RULES = {
     showExplanation: false,
     showRisk: false,
     showAdoptChoice: false,
+    showReferenceScale: true,
     showReason: false,
     showResponsibility: false,
     showAudit: false
@@ -44,6 +46,7 @@ const GROUP_DISPLAY_RULES = {
     showExplanation: true,
     showRisk: true,
     showAdoptChoice: true,
+    showReferenceScale: false,
     showReason: false,
     showResponsibility: false,
     showAudit: false
@@ -54,6 +57,7 @@ const GROUP_DISPLAY_RULES = {
     showExplanation: true,
     showRisk: true,
     showAdoptChoice: true,
+    showReferenceScale: false,
     showReason: false,
     showResponsibility: true,
     showAudit: true
@@ -70,6 +74,7 @@ const BLOCK_CANDIDATES = {
   risk: ["risk-block", "risk_block", "riskBlock"],
   finalDecision: ["final-decision-block", "final_decision_block", "finalDecisionBlock"],
   adopt: ["adopt-block", "adopt_block", "adoptBlock"],
+  referenceScale: ["reference-scale-block", "reference_scale_block", "referenceScaleBlock"],
   reason: ["reason-block", "reason_block", "reasonBlock", "modify-reason-block", "modify_reason_block", "modifyReasonBlock"],
   responsibility: ["responsibility-block", "responsibility_block", "responsibilityBlock"],
   audit: ["audit-block", "audit_block", "auditBlock"]
@@ -253,6 +258,7 @@ function applyGroupDisplay(groupType) {
   setBlockVisibility(BLOCK_CANDIDATES.explanation, showPostPreModules && rule.showExplanation);
   setBlockVisibility(BLOCK_CANDIDATES.risk, showPostPreModules && rule.showRisk);
   setBlockVisibility(BLOCK_CANDIDATES.adopt, showPostPreModules && rule.showAdoptChoice);
+  setBlockVisibility(BLOCK_CANDIDATES.referenceScale, showPostPreModules && rule.showReferenceScale);
   setBlockVisibility(BLOCK_CANDIDATES.responsibility, showPostPreModules && rule.showResponsibility);
   setBlockVisibility(BLOCK_CANDIDATES.audit, showPostPreModules && rule.showAudit);
   setBlockVisibility(BLOCK_CANDIDATES.reason, false);
@@ -388,7 +394,7 @@ function chooseBalancedRandomGroup(counts) {
 }
 
 function assignGroup() {
-  return "全自动组";
+  return "前置组";
   /*注释符号
   const counts = getStoredGroupCounts();
   const selectedGroup = chooseBalancedRandomGroup(counts);
@@ -526,6 +532,7 @@ function collectResponse() {
     response_time_seconds: elapsedSeconds,
     pre_judgment: getRadioValue("pre_judgment", "preJudgment"),
     final_decision: getRadioValue("final_decision", "finalDecision"),
+    reference_scale: getRadioValue("reference_scale", "referenceScale"),
     adopt_system: adoptSystemValue,
     modify_reason: adoptSystemValue === "修改" ? getCheckedValues("modify_reason", "modifyReason") : [],
     modify_reason_other: adoptSystemValue === "修改" ? getOtherReasonText() : "",
@@ -545,6 +552,10 @@ function validateCurrentCaseResponse() {
   if (!showPostPreModules) return false;
   const finalDecision = getSelectedRadioValue(["final_decision", "finalDecision"]);
   if (!finalDecision) return false;
+  if (rule.showReferenceScale) {
+    const referenceScale = getSelectedRadioValue(["reference_scale", "referenceScale"]);
+    if (!referenceScale) return false;
+  }
   if (rule.showAdoptChoice) {
     const adoptSystem = getSelectedRadioValue(["adopt_system", "adoptSystem"]);
     if (!adoptSystem) return false;

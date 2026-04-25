@@ -341,6 +341,30 @@ function scrollToCaseTop() {
   });
 }
 
+function showCompletionPage() {
+  if (timerInterval) {
+    clearInterval(timerInterval);
+  }
+  const appEl = document.getElementById("app");
+  if (!appEl) return;
+  appEl.innerHTML = `
+    <main class="completion-page">
+      <section class="completion-card">
+        <div class="completion-icon">✓</div>
+        <h1>实验已完成</h1>
+        <p class="completion-main-text">您的审核任务已经全部完成，实验数据已成功提交。</p>
+        <p class="completion-sub-text">感谢您的参与。请勿返回上一页或重复提交，本页面可以直接关闭。</p>
+        <div class="completion-meta">
+          <div><span>被试编号</span><strong>${participantId}</strong></div>
+          <div><span>实验条件</span><strong>${groupType}</strong></div>
+          <div><span>完成案例数</span><strong>${results.length} 条</strong></div>
+        </div>
+      </section>
+    </main>
+  `;
+  window.onbeforeunload = null;
+}
+
 async function initExperiment() {
   participantId = generateParticipantId();
   experimentStartedAt = new Date().toISOString();
@@ -626,13 +650,18 @@ async function goToNextCase() {
     return;
   }
 
+  
   clearInterval(timerInterval);
-  await saveResultsToSupabase();
+  const isSaved = await saveResultsToSupabase();
+  if (isSaved) {
+    showCompletionPage();
+  }
 }
 
 async function saveResultsToSupabase() {
+ 
   if (hasSubmittedToDatabase) {
-    alert("本次实验数据已提交，请勿重复提交。");
+    showCompletionPage();
     return true;
   }
 
@@ -671,7 +700,6 @@ async function saveResultsToSupabase() {
 
     hasSubmittedToDatabase = true;
     console.log("数据已成功写入 Supabase。", payload);
-    alert("实验数据已成功提交，感谢您的参与！");
     return true;
   } catch (error) {
     console.error("提交数据库时发生异常：", error);
@@ -740,5 +768,11 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  window.addEventListener("beforeunload", (event) => {
+  if (!hasSubmittedToDatabase && Array.isArray(results) && results.length > 0) {
+    event.preventDefault();
+    event.returnValue = "";
+  }
+});
   initExperiment();
 });

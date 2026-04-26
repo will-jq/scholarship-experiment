@@ -368,7 +368,7 @@ function showCompletionPage() {
 async function initExperiment() {
   participantId = generateParticipantId();
   experimentStartedAt = new Date().toISOString();
-  groupType = assignGroup();
+  groupType = await assignGroup();
 
   const groupEl = document.getElementById("group-type");
   if (groupEl) {
@@ -443,14 +443,41 @@ function chooseBalancedRandomGroup(counts) {
   return candidateGroups[randomIndex];
 }
 
-function assignGroup() {
-  return "全自动组";
-  /*注释符号
+async function assignGroup() {
+  const supabaseClient = getSupabaseClient();
+
+  if (!supabaseClient) {
+    console.warn("Supabase 客户端未加载，已回退到本地均衡分组。正式实验前应修复该问题。 ");
+    return assignGroupLocally();
+  }
+
+  try {
+    const { data, error } = await supabaseClient.rpc("assign_experiment_group");
+
+    if (error) {
+      throw error;
+    }
+
+    const assigned = Array.isArray(data) ? data[0] : data;
+    if (!assigned || !assigned.group_label) {
+      throw new Error("Supabase 分组函数未返回有效组别。 ");
+    }
+
+    console.log("Supabase 全局均衡分组结果：", assigned);
+    return assigned.group_label;
+  } catch (error) {
+    console.error("Supabase 全局分组失败，已回退到本地均衡分组：", error);
+    alert("在线分组服务暂时不可用，系统将使用本地测试分组。正式实验前请联系研究人员检查。 ");
+    return assignGroupLocally();
+  }
+}
+
+function assignGroupLocally() {
   const counts = getStoredGroupCounts();
   const selectedGroup = chooseBalancedRandomGroup(counts);
   counts[selectedGroup.key] = (counts[selectedGroup.key] ?? 0) + 1;
   saveGroupCounts(counts);
-  return selectedGroup.label;*/
+  return selectedGroup.label;
 }
 
 function renderCase() {
@@ -576,7 +603,7 @@ function collectResponse() {
   return {
     participant_id: participantId,
     group_type: groupType,
-    group_counts_snapshot: getStoredGroupCounts(),
+    local_group_counts_snapshot: getStoredGroupCounts(),
     case_id: currentCase.case_id,
     case_order: currentCaseIndex + 1,
     response_time_seconds: elapsedSeconds,
